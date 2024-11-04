@@ -37,7 +37,25 @@ $ source .venv/bin/activate
 (.venv)$ pip freeze > requirements.txt
 ```
 
-- **STEP06**: Configure Application
+- **STEP06**: Implement your bokeh application 
+
+- You must create the principal view using a python module called main.py
+- You can use all the modules you need. 
+- You must create a logout button using this code:
+
+```
+##########################################
+# Logout Button
+#########################################
+button_logout = Button(label="logout", button_type="primary", sizing_mode = "scale_width")
+button_logout.js_on_event("button_click", CustomJS(code=f"window.location.href='{curdoc().session_context.request.path}{curdoc().session_context.logout_url}'"))
+```
+
+```
+(.venv)$ pip freeze > requirements.txt
+```
+
+- **STEP07**: Configure Application
 
 Edit bootstrap Bokeh Server and set these arguments:
 
@@ -55,13 +73,13 @@ basic_password = "<PASSWORD>"                                                -->
 login_level = logging.DEBUG                                                  --> Logging level or your bokeh application
 ```
 
-- **STEP07**: Execute application and debug
+- **STEP08**: Execute application and debug
 
 ```
 $ python boostrap.py
 ```
 
-- **STEP08**: Build the docker image
+- **STEP09**: Build the docker image
 
 Exec this command to build:
 
@@ -69,7 +87,7 @@ Exec this command to build:
 $ docker build -t uniovi-gsdpi-bokeh-mp-traccion:1.0.0 .
 ```
 
-- **STEP09**: run the docker container locally
+- **STEP10**: run the docker container locally
 
 Exec this command to run the container:
 
@@ -77,13 +95,13 @@ Exec this command to run the container:
 $ docker run --rm --name uniovi-gsdpi-bokeh-mp-traccion:1.0.0 -p 5006:5006 uniovi-gsdpi-bokeh-mp-traccion:1.0.0
 ```
 
-- **STEP10**: tag image docker image to be uploaded to azure container registry
+- **STEP11**: tag image docker image to be uploaded to azure container registry
 
 ```
 $ docker tag uniovi-gsdpi-bokeh-mp-traccion:1.0.0 avibdocker.azurecr.io/uniovi-gsdpi-bokeh-mp-traccion:1.0.0
 ```
 
-- **STEP11**: push image docker image
+- **STEP12**: push image docker image
 
 ```
 $ docker push avibdocker.azurecr.io/uniovi-gsdpi-bokeh-mp-traccion:1.0.0
