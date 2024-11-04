@@ -1,20 +1,82 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Description
+A PoC with bokeh server with a custom basic login view
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## STEPS
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- **STEP01**: Create project
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+If you want download the modules from scratch
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+```
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip install bokeh==3.1.0
+$ pip freeze > requirements.txt
+```
+
+If you want download the actual python modules
+
+```
+$ pip install -r requirements.txt
+```
+
+- **STEP02**: Install extra python dependencies for your app
+
+```
+$ pip install matplotlib
+$ pip install scipy
+$ pip install scikit-learn
+$ pip install openpyxl
+```
+
+- **STEP02**: Configure Application
+
+Edit bootstrap Bokeh Server default arguments
+
+```
+app = "uniovi-gsdpi-bokeh-template"               --> App main folder bokeh application
+app_prefix = "prefix"                             --> Prefix for your bokeh application
+app_port = 5006                                   --> Port for your bokeh application
+app_title = "Bokeh Template"                      --> Title for your bokeh application
+app_logo = "logo_gsdpi.png"                       --> Logo for your bokeh application
+app_background = "login_background.png"           --> Background for your bokeh application
+cookie_secret = "my super secret"                 --> Cookie secret for your bokeh application
+websocket_origin = ["localhost:" + str(app_port)] --> Web Origins Domains for your bokeh application
+basic_username = "bokeh"                          --> Username credentials for your bokeh application
+basic_password = "bokeh"                          --> Username credentials for your bokeh application
+login_level = logging.DEBUG                       --> Logging level or your bokeh application
+```
+
+- **STEP03**: Execute application
+
+```
+$ python boostrap.py
+```
+
+- **STEP04**: Build the docker image
+
+Exec this command to build:
+
+```
+$ docker build -t uniovi-gsdpi-bokeh-mp-tracking .
+```
+
+- **STEP05**: run the docker container
+
+Exec this command to run the container:
+
+```
+$ docker run --rm --name uniovi-gsdpi-bokeh-template -p 5006:5006 uniovi-gsdpi-bokeh-template
+```
+
+- **STEP06**: tag image docker image to be uploaded to azure
+
+```
+$ docker tag uniovi-gsdpi-bokeh-template avibdocker.azurecr.io/uniovi-gsdpi-bokeh-template:1.0.0
+```
+
+- **STEP07**: push image docker image
+
+```
+$ docker push avibdocker.azurecr.io/uniovi-gsdpi-bokeh-template:1.0.0
+```

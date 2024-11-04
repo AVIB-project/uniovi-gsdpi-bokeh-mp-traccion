@@ -1,0 +1,119 @@
+{
+    "comment": {
+        "text":"Morphing Projections: datos de tracción",
+        "version": 0.1
+    },
+    "data": {
+        "datapath":"./static/data/",
+        "filename": "datos_traccion.csv"
+    },
+    "defaults":{
+        "sortbyColumn" : "",
+        "colorbyColumn" : "cbz1_conv1_temp_rod_motor2",
+        "box1": "cbz1_conv2_temp_rod_motor4",
+        "box2": "cbz1_conv2_temp_rod_motor3",
+        "autocomplete": "Si"
+    },
+    "appearance":{
+        "appTitle": "Morphing Projections/Traccion",
+        "hoverTitle": "id_trayecto",
+        "figTitle": "Datos de tracción"
+    },
+    "columns":{
+        "idColumn" : "tren2",
+        "columnsToUse": [],
+        "encodings": [
+            "Hora",
+            "DiaSemana#",
+            "anomalia",
+            "cbz1_ALARM_BAT",
+            "cbz1_ALARM_BUS",
+            "cbz1_ALARM_CARGA",
+            "cbz1_ALARM_CHOP",
+            "cbz1_ALARM_GENERAL",
+            "cbz2_ALARM_BAT",
+            "cbz2_ALARM_BUS",
+            "cbz2_ALARM_CARGA",
+            "cbz2_ALARM_GENERAL",
+            "cbz2_ALARM_TRAC",
+            "cbz1_conv1_speed_axis1_kmh", 
+            "id_trayecto"],
+        "rest": [
+            "dt",
+            "dx",
+            "anomalia",
+            "elevacion",
+            "pendiente",
+            "res_cbz1_conv1_temp_motor1",        
+            "res_cbz1_conv1_temp_motor2", 
+            "res_cbz1_conv2_temp_motor3",        
+            "res_cbz1_conv2_temp_motor4", 
+            "res_cbz2_conv1_temp_motor1",        
+            "res_cbz2_conv1_temp_motor2", 
+            "res_cbz2_conv2_temp_motor3",        
+            "res_cbz2_conv2_temp_motor4", 
+            "res_cbz1_conv1_temp_rod_motor1",        
+            "res_cbz1_conv1_temp_rod_motor2", 
+            "res_cbz1_conv2_temp_rod_motor3",        
+            "res_cbz1_conv2_temp_rod_motor4", 
+            "res_cbz2_conv1_temp_rod_motor1",        
+            "res_cbz2_conv1_temp_rod_motor2", 
+            "res_cbz2_conv2_temp_rod_motor3",        
+            "res_cbz2_conv2_temp_rod_motor4", 
+            "cbz1_conv1_temp_motor1",        
+            "cbz1_conv1_temp_motor2", 
+            "cbz1_conv2_temp_motor3",        
+            "cbz1_conv2_temp_motor4", 
+            "cbz2_conv1_temp_motor1",        
+            "cbz2_conv1_temp_motor2", 
+            "cbz2_conv2_temp_motor3",        
+            "cbz2_conv2_temp_motor4", 
+            "cbz1_conv1_temp_rod_motor1",        
+            "cbz1_conv1_temp_rod_motor2", 
+            "cbz1_conv2_temp_rod_motor3",        
+            "cbz1_conv2_temp_rod_motor4", 
+            "cbz2_conv1_temp_rod_motor1",        
+            "cbz2_conv1_temp_rod_motor2", 
+            "cbz2_conv2_temp_rod_motor3",        
+            "cbz2_conv2_temp_rod_motor4", 
+            "cbz1_conv1_water_temp",            
+            "cbz2_conv1_speed_axis1_kmh", 
+            "cbz1_conv1_effort_demand", 
+            "cbz2_conv1_effort_demand", 
+            "cbz1_recept_conv1_sentido",
+            "cbz1_conv1_amb_temp", 
+            "cbz2_conv1_speed_vehicle_kmh", 
+            "cbz2_conv1_effort_demand", 
+            "cbz2_recept_conv1_sentido",
+            "cbz2_conv1_amb_temp", 
+            "cbz2_conv2_amb_temp",
+            "cbz1_ALARM_AFE",
+            "cbz1_ALARM_AUX",
+            "cbz1_ALARM_BAT",
+            "cbz1_ALARM_BUS",
+            "cbz1_ALARM_CARGA",
+            "cbz1_ALARM_CHOP",
+            "cbz1_ALARM_GENERAL",
+            "cbz1_ALARM_HV",
+            "cbz1_ALARM_REFRIG",
+            "cbz1_ALARM_TRAC"
+        ],
+        "hover": [
+            "city_start",
+            "city_end",
+            "Hora",
+            "DiaSemana",
+            "pendiente",
+            "elevacion",
+            "cbz2_conv1_speed_axis1_kmh"
+        ],
+        "categorical": [
+            "id_trayecto"
+        ]
+    },
+    "precalcEncodings":{
+        "files": ["dither.npy", "gps.npy"],
+        "names": ["dither","gps"]
+    }
+    
+}

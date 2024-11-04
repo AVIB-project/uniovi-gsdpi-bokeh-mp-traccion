@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PoC Bokeh Auth Login</title>
+    <link rel="stylesheet" type="text/css" href={{style_path}} >
+</head>
+<body style="background-image: url({{background_image}})">
+    <div class="wrap">
+        <!-- Login Form -->
+        <form class="login-form" action="/{{prefix}}/login" method="post">
+            {% module xsrf_form_html() %}
+
+            <!-- Login Header -->
+            <div class="form-header">
+                <img src={{logo_image}} alt="Logo" width="100">
+
+                <p>Login to access <strong>{{app_title}}</strong></p>                
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+                <input name="username" type="text" class="form-input" autocapitalize="off" autocorrect="off" placeholder="username">
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <input name="password" type="password" class="form-input" placeholder="password">
+            </div>
+
+            <!-- Login Button -->
+            <div class="form-group">
+                <button class="form-button" type="submit">Login</button>
+            </div>
+
+            <!-- Login Error -->
+            <span class="errormessage">{{errormessage}}</span>
+            <div><small>
+
+            <!-- Login Footer -->
+            <p><a href="https://gsdpi.edv.uniovi.es/webpage/" target=”_blank”>Go to GSDPI Lab</a> for more details.</p>
+            </small></div>
+        </form>
+    </div>
+</body>
+</html>
