@@ -3,57 +3,65 @@ A PoC with bokeh server with a custom basic login view
 
 ## STEPS
 
-- **STEP01**: Create project
+- **STEP01**: clone the template auth bokeh repository as project name alias
 
-If you want download the modules from scratch
+```
+$ git clone https://gsdpi@dev.azure.com/gsdpi/avib/_git/uniovi-gsdpi-bokeh-template uniovi-gsdpi-bokeh-mp-traccion
+```
+
+- **STEP02**: create virtual env for your project and activate it
 
 ```
 $ python3 -m venv .venv
 $ source .venv/bin/activate
-$ pip install bokeh==3.1.0
-$ pip freeze > requirements.txt
 ```
 
-If you want download the actual python modules
+- **STEP03**: Install default python modules in your project
 
 ```
-$ pip install -r requirements.txt
+(.venv)$ pip install -r requirements.txt
 ```
 
-- **STEP02**: Install extra python dependencies for your app
+- **STEP04**: Install extra python dependencies for your application
 
 ```
-$ pip install matplotlib
-$ pip install scipy
-$ pip install scikit-learn
-$ pip install openpyxl
+(.venv)$ pip install matplotlib
+(.venv)$ pip install scipy
+(.venv)$ pip install scikit-learn
+(.venv)$ pip install openpyxl
 ```
 
-- **STEP02**: Configure Application
-
-Edit bootstrap Bokeh Server default arguments
+- **STEP05**: Freeze all modules used by your application
 
 ```
-app = "uniovi-gsdpi-bokeh-template"               --> App main folder bokeh application
-app_prefix = "prefix"                             --> Prefix for your bokeh application
-app_port = 5006                                   --> Port for your bokeh application
-app_title = "Bokeh Template"                      --> Title for your bokeh application
-app_logo = "logo_gsdpi.png"                       --> Logo for your bokeh application
-app_background = "login_background.png"           --> Background for your bokeh application
-cookie_secret = "my super secret"                 --> Cookie secret for your bokeh application
-websocket_origin = ["localhost:" + str(app_port)] --> Web Origins Domains for your bokeh application
-basic_username = "bokeh"                          --> Username credentials for your bokeh application
-basic_password = "bokeh"                          --> Username credentials for your bokeh application
-login_level = logging.DEBUG                       --> Logging level or your bokeh application
+(.venv)$ pip freeze > requirements.txt
 ```
 
-- **STEP03**: Execute application
+- **STEP06**: Configure Application
+
+Edit bootstrap Bokeh Server and set these arguments:
+
+```
+app = "uniovi-gsdpi-bokeh-template"                                          --> App main folder bokeh application (must b ethe same as main folder)
+app_prefix = "MP"                                                            --> Prefix for your bokeh application
+app_port = 5006                                                              --> Port for your bokeh application
+app_title = "MP traccion"                                                    --> Title for your bokeh application
+app_logo = "logo_gsdpi.png"                                                  --> Logo for your bokeh application
+app_background = "login_background.png"                                      --> Background for your bokeh application
+cookie_secret = "gsdpi"                                                      --> Cookie secret for your bokeh application
+websocket_origin = ["avispe.edv.uniovi.es:80", "localhost:" + str(app_port)] --> Web Origins Domains for your bokeh application
+basic_username = "<USERNAME>"                                                --> Username credentials for your bokeh application
+basic_password = "<PASSWORD>"                                                --> Password credentials for your bokeh application
+login_level = logging.DEBUG                                                  --> Logging level or your bokeh application
+```
+
+- **STEP07**: Execute application and debug
 
 ```
 $ python boostrap.py
 ```
 
-- **STEP04**: Build the docker image
+- **STEP08**: Build the docker image
 
 Exec this command to build:
 
@@ -61,7 +69,7 @@ Exec this command to build:
 $ docker build -t uniovi-gsdpi-bokeh-mp-traccion:1.0.0 .
 ```
 
-- **STEP05**: run the docker container
+- **STEP09**: run the docker container locally
 
 Exec this command to run the container:
 
@@ -69,13 +77,13 @@ Exec this command to run the container:
 $ docker run --rm --name uniovi-gsdpi-bokeh-mp-traccion:1.0.0 -p 5006:5006 uniovi-gsdpi-bokeh-mp-traccion:1.0.0
 ```
 
-- **STEP06**: tag image docker image to be uploaded to azure
+- **STEP10**: tag image docker image to be uploaded to azure container registry
 
 ```
 $ docker tag uniovi-gsdpi-bokeh-mp-traccion:1.0.0 avibdocker.azurecr.io/uniovi-gsdpi-bokeh-mp-traccion:1.0.0
 ```
 
-- **STEP07**: push image docker image
+- **STEP11**: push image docker image
 
 ```
 $ docker push avibdocker.azurecr.io/uniovi-gsdpi-bokeh-mp-traccion:1.0.0
