@@ -39,7 +39,7 @@ $ source .venv/bin/activate
 
 - **STEP06**: Implement your bokeh application 
 
-    - You must create the principal view using a python module called main.py
+    - You must create the principal view using a python module called **main.py**
     - You can use all the modules you need. 
     - You must create a logout button using this code:
 
