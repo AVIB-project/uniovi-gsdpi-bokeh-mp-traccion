@@ -3,7 +3,7 @@ A PoC with bokeh server with a custom basic login view
 
 ## STEPS
 
-- **STEP01**: clone the template auth bokeh repository as project name alias
+- **STEP01**: clone the template bokeh repository as project name alias
 
 ```
 $ git clone https://gsdpi@dev.azure.com/gsdpi/avib/_git/uniovi-gsdpi-bokeh-template uniovi-gsdpi-bokeh-mp-traccion
