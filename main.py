@@ -243,7 +243,8 @@ precalculatedPositionsNames = conf["precalcEncodings"]["names"]
 ##########################################################
 
 # Donde se guardan los datos para descargarlos al cliente
-savepath = './static/export'
+save_path = 'static/export/'
+save_request = 'MP/uniovi-gsdpi-bokeh-mp-traccion/static/export/'
 
 # Leemos los datos principales
 df = pd.read_csv(datapath + filename, index_col=0)
@@ -874,7 +875,7 @@ if (filename != '') {
 }
 t.text=''
 console.log('Exiting saving code..')
-""" %(savepath)
+""" %(save_request)
 
 # y un control dummy para asociar esa función
 div_dummy = Div(text="", width=300, height=120, visible=False)
@@ -1034,7 +1035,7 @@ boton_gB.on_click(SeleccionGBCallback)
 
 def SaveExcel_worker():
     filename = "selected_data.xlsx"
-    df.iloc[source.selected.indices].T.to_excel(savepath+filename)
+    df.iloc[source.selected.indices].T.to_excel(save_path+filename)
     div_dummy.text = filename
     disable_sliders(False)
     hide_spinner()
@@ -1072,7 +1073,7 @@ def SaveHdf_worker():
     print(l)
     tempdf = pd.DataFrame(source.data)[l]
     
-    tempdf.iloc[source.selected.indices].to_hdf(savepath+filename, key='raiz')
+    tempdf.iloc[source.selected.indices].to_hdf(save_path+filename, key='raiz')
     div_dummy.text = filename
 
     disable_sliders(False)
