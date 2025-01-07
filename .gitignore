@@ -3,4 +3,5 @@ auth/__pycache__
 __pycache__
 .vscode
 static/export/*.xlsx
-static/data/*.*
+static/data/*.csv
+static/data/*.npy
